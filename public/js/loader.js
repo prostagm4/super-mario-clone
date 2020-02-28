@@ -5,7 +5,6 @@ export function loadImage(url) {
             resolve(image);
         });
         image.src = url;
-        console.log('ho creato: ', image)
     });
 }
 
