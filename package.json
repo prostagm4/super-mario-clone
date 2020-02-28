@@ -1,8 +1,7 @@
 {
   "name": "mytake",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "start": "serve ./public",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,5 +10,15 @@
   "license": "ISC",
   "dependencies": {
     "serve": "^11.3.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prostagm4/super-mario-clone.git"
+  },
+  "bugs": {
+    "url": "https://github.com/prostagm4/super-mario-clone/issues"
+  },
+  "homepage": "https://github.com/prostagm4/super-mario-clone#readme",
+  "description": ""
 }

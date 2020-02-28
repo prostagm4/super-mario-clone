@@ -11,23 +11,28 @@ function drawBackground(background, context, sprites) {
     });
 }
 
+function loadBackgroundSprites() {
+    return loadImage('/img/tiles.png').then(image => {
+        const sprites = new SpriteSheet(image, 16, 16);
+        sprites.define('sky', 3, 23);
+        sprites.define('ground', 0, 0);
+        sprites.define('brick', 2, 0);
+        sprites.define('box', 25, 0);
+        sprites.define('pilaster', 0, 1);
+        sprites.define('blue', 2, 2);
+        console.log(sprites.tiles);
+        return sprites;
+    });
+}
+
 const canvas = document.getElementById("screen");
 const ctx = canvas.getContext("2d");
 
-loadImage('/img/tiles.png').then(image => {
-    const sprites = new SpriteSheet(image, 16, 16);
-    sprites.define('sky', 3, 23);
-    sprites.define('ground', 0, 0);
-    sprites.define('brick', 2, 0);
-    sprites.define('box', 25, 0);
-    sprites.define('pilaster', 0, 1);
-    sprites.define('blue', 2, 2);
-    console.log(sprites.tiles);
-
+Promise.all([loadBackgroundSprites(), loadLevel('0-0')]).then(([sprites, level]) => {
     loadLevel('0-0').then(level => {
-    level.backgrounds.forEach(background => {
-        drawBackground(background, ctx, sprites);
+        level.backgrounds.forEach(background => {
+            drawBackground(background, ctx, sprites);
+        });
     });
-});
 });
 
